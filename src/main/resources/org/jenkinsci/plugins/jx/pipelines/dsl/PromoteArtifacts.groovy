@@ -19,7 +19,7 @@ class PromoteArtifacts {
     def repoIds = config.repoIds
     def containerName = config.containerName
 
-    return flow.doStepExecution(config.stepExtension) {
+    return flow.doStepExecution(config) {
       if (repoIds && repoIds.size() > 0) {
         script.container(name: containerName) {
           script.sh 'chmod 600 /root/.ssh-git/ssh-key'
